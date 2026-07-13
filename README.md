@@ -64,12 +64,13 @@ The project covers:
 | Language                | Python 3.10                          |
 | Framework               | Flask                                |
 | Testing                 | Pytest                               |
+| Linting                 | Flake8                               |
 | Containerization        | Docker                               |
 | Container Orchestration | Docker Compose                       |
 | Version Control         | Git                                  |
 | Source Repository       | GitHub                               |
-| CI/CD                   | GitHub Actions *(Coming Soon)*       |
-| Container Registry      | Docker Hub *(Coming Soon)*           |
+| CI/CD                   | GitHub Actions                       |
+| Container Registry      | Docker Hub                           |
 | Kubernetes              | Kubernetes *(Coming Soon)*           |
 | Package Manager         | Helm *(Coming Soon)*                 |
 | Infrastructure as Code  | Terraform *(Coming Soon)*            |
@@ -114,7 +115,11 @@ devops-flask-cicd-pipeline/
 * Unit testing with Pytest
 * Docker image creation
 * Docker Compose support
-
+* Flake8 code linting
+* Multi-job GitHub Actions workflow
+* GitHub Actions artifacts (JUnit XML test reports)
+* Automatic Docker image publishing
+* Docker image tagging (latest + Git SHA)
 
 # 🌐 Available Endpoints
 
@@ -204,6 +209,20 @@ Stop the application:
 
 docker compose down
 
+# ⚙️ GitHub Actions Workflow
+
+Every push to the `main` branch automatically performs the following:
+
+1. Run Flake8 linting.
+2. Install project dependencies.
+3. Run Pytest unit tests.
+4. Generate a JUnit XML report.
+5. Upload the test report as a GitHub Actions artifact.
+6. Build the Docker image.
+7. Tag the image (`latest` and Git SHA).
+8. Authenticate with Docker Hub using GitHub Secrets.
+9. Push the Docker image to Docker Hub.
+
 # 📚 Key DevOps Concepts Demonstrated
 
 * Version Control
@@ -228,8 +247,6 @@ This repository is part of my DevOps learning journey, where I am building a com
 
 # ⭐ Future Enhancements
 
-* GitHub Actions CI Pipeline
-* Docker Hub Integration
 * Kubernetes Deployment
 * Helm Charts
 * Terraform Automation
