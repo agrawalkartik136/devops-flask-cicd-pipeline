@@ -36,14 +36,9 @@ def home():
     logger.info("Home endpoint accessed")
 
     return jsonify({
-        "application": APP_NAME,
-        "description": "Production-style CI/CD Demo Project",
-        "version": APP_VERSION,
-        "environment": APP_ENV,
-        "status": "Running",
-        "hostname": socket.gethostname(),
-        "python_version": platform.python_version(),
-        "timestamp": datetime.now().isoformat()
+        "message": "Welcome to Flask CI/CD Pipeline",
+        "version": "2.0",
+        "status": "Running on Kubernetes 🚀"
     })
 
 
