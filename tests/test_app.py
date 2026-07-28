@@ -15,8 +15,10 @@ def test_home():
 
     data = response.get_json()
 
-    assert data["application"] == "DevOps Flask CI/CD Pipeline"
-    assert data["status"] == "Running"
+    assert data["message"] == "Welcome to Flask CI/CD Pipeline"
+    assert data["version"] == "2.0"
+    # assert data["application"] == "DevOps Flask CI/CD Pipeline"
+    # assert data["status"] == "Running"
 
 
 def test_health():
