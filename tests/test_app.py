@@ -7,7 +7,6 @@ from app import app
 
 client = app.test_client()
 
-
 def test_home():
     response = client.get("/")
 
@@ -16,9 +15,9 @@ def test_home():
     data = response.get_json()
 
     assert data["message"] == "Welcome to Flask CI/CD Pipeline"
+    assert data["application"] == "DevOps Flask CI/CD Pipeline"
     assert data["version"] == "2.0"
-    # assert data["application"] == "DevOps Flask CI/CD Pipeline"
-    # assert data["status"] == "Running"
+    assert data["status"] == "Running on Kubernetes 🚀"
 
 
 def test_health():
