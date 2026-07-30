@@ -34,6 +34,7 @@ APP_ENV = os.getenv("APP_ENV", "Development")
 @app.route("/")
 def home():
     return jsonify({
+        "message": "Welcome to Flask CI/CD Pipeline",
         "application": os.getenv("APPLICATION_NAME", "Unknown Application"),
         "version": os.getenv("APP_VERSION", "Unknown"),
         "status": os.getenv("APP_STATUS", "Unknown")
