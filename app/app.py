@@ -76,6 +76,14 @@ def version():
         "version": APP_VERSION
     })
 
+@app.route("/database")
+def database():
+    return jsonify({
+        "database_user": os.getenv("DB_USERNAME"),
+        "database_password": os.getenv("DB_PASSWORD")
+    })
+
+
 
 # -----------------------------
 # Custom 404 Error

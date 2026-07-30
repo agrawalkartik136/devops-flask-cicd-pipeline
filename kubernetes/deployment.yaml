@@ -24,11 +24,12 @@ spec:
 
           ports:
            - containerPort: 5000
-           
+
           envFrom:
             - configMapRef:
                 name: flask-config
-          
+            - secretRef:
+                name: flask-secret
           livenessProbe:
             httpGet:
               path: /
