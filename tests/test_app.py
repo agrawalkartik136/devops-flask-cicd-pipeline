@@ -47,7 +47,7 @@ def test_version():
 
     data = response.get_json()
 
-    assert data["version"] == "1.0.0"
+    assert data["version"] == "2.0"
 
 
 def test_invalid_route():
