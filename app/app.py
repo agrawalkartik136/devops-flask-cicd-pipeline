@@ -33,14 +33,11 @@ APP_ENV = os.getenv("APP_ENV", "Development")
 # -----------------------------
 @app.route("/")
 def home():
-    logger.info("Home endpoint accessed")
-
     return jsonify({
-        "message": "Welcome to Flask CI/CD Pipeline",
-        "version": "2.0",
-        "status": "Running on Kubernetes 🚀"
+        "application": os.getenv("APPLICATION_NAME", "Unknown Application"),
+        "version": os.getenv("APP_VERSION", "Unknown"),
+        "status": os.getenv("APP_STATUS", "Unknown")
     })
-
 
 # -----------------------------
 # Health Check Endpoint

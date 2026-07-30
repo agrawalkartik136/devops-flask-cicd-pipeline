@@ -24,5 +24,24 @@ spec:
 
           ports:
            - containerPort: 5000
+           
+          envFrom:
+            - configMapRef:
+                name: flask-config
+          
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 5000
+            initialDelaySeconds: 10
+            periodSeconds: 10
+
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 5000
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          
 
   

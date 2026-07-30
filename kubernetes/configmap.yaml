@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: flask-config 
+
+data:
+  APPLICATION_NAME: "Devops Flask CI/CD Pipeline"
+  APP_VERSION: "2.0"
+  APP_STATUS: "RUNNING ON KUBERNETES"
